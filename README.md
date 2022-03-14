@@ -11,10 +11,12 @@ Is there a difference between pre-pandemic and post-pandemic house prices and cr
 
 
 # Technologies: 
-Python will be used to clean up data and conduct the machine learning analysis.
+Python will be used to clean up data and conduct the machine learning analysis. Further information pertaining to the technologies used for this assignment are found in the [technology.md file](technology.md). 
 
 # Data: 
-We are using an Austin house listing data set from kaggle.com along with crime reports dataset from austintexas.gov. We plan to add up crimes per zipcode and merge with the housing dataset, so each listing will have a crime frequency number to help with our analysis.
+We are using an Austin house listing data set from kaggle.com along with crime reports dataset from austintexas.gov. We plan to add up crimes per zipcode and merge with the housing dataset, so each listing will have a crime frequency number to help with our analysis. A simple entity relationship diagram is found below:
+
+<img width="277" alt="ERD" src="https://user-images.githubusercontent.com/92558842/158086740-83a18bb9-e932-4d36-8c9e-8d80254170be.png">
 
 # Machine Learning Model: 
 With the housing and crime data we will train a logistic regression model to try and predict the home price in a given zipcode.
