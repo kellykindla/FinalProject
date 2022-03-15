@@ -6,6 +6,9 @@ __pycache__/
 #passwords
 config.py
 
+# Ignore everything under Resources folder
+Resources
+
 # C extensions
 *.so
 
