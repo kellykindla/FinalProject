@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#phil's test files
+phil_test.txt
+Crime_EDA.ipynb
+
 #passwords
 config.py
 
