@@ -4,13 +4,10 @@
 Housing prices in Austin have seen a sharp increase in recent years. According to the Austin Board of Realtors January 2022 report, the meadian house price in the Austin-Round Rock area is $476,000, up 30% from last January of 2021. Simultaneously, in recent years there have been reports of increased crime in Austin. According to KVUE, there were 60 homicides in Austin in 2021, the highest in 61 years that the police has kept records. Taking both things into consideration, we wonder if the crime rates are impacting, at all, what areas are seeing the most house sales and the price they are listed at. 
 
 ## Question: 
-Can we predict, from reported crime data, the price of a house in a certain area in Austin?
-
-Will crime rates in Austin affect house prices by zipcode? 
-
-Will crime rates and house prices vary per zipcode depending on the year?
-
-Is there a difference between pre-pandemic and post-pandemic house prices and crime rates in Austin? 
+- Can we predict, from reported crime data, the price of a house in a certain area in Austin?
+- Will crime rates in Austin affect house prices by zipcode? 
+- Will crime rates and house prices vary per zipcode depending on the year?
+- Is there a difference between pre-pandemic and post-pandemic house prices and crime rates in Austin? 
 
 ## Technologies: 
 Python will be used to clean up data and conduct the machine learning analysis. Further information pertaining to the technologies used for this assignment are found in the [technology.md file](technology.md). 
