@@ -15,17 +15,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-This is a R Markdown Document that will serve as an example dashboard for the purposes of deleiverable one. The goal of this document is to present a clean, organized, and simple layout that includes: Information about the topic of interest that the Austin Team wishes to explore and convey to all potentail readers, dispalying graphs, images of interest that will aid in analysis, and prvide a layout that is user friendly. Ultimatley, a more robust and fitting dashboard will be chosen later as the project draws completion. 
+This is a R Markdown Document that will serve as an example dashboard for the purposes of deliverable one. The goal of this document is to present a clean, organized, and simple layout that includes: Information about the topic of interest that the Austin Team wishes to explore and convey to all potential readers, displaying graphs, images of interest that will aid in analysis, and pride a layout that is user friendly. Ultimately, a more robust and fitting dashboard will be chosen later as the project draws completion. 
 
 ## Topic
 
-For Team Austin's project, we wish to preform analysis to determine if there is a connection to the increae price in housing prices in austin as a relation to crimes in Austin. For this example, a merged data set that contains both housing prices and unique crimes commited that both sorted by zipcodes will be brought in. 
+For Team Austin's project, we wish to preform analysis to determine if there is a connection to the increase price of houses in Austin as a relation to crimes in Austin. For this example, a merged data set that contains both housing prices and unique crimes commited are both sorted by zip codes and will be brought in. 
 
-To test how a machine learning model could be utilized, we can utilize functions in R studio to to diplay a simple linear model test, where as the the housing prices will be the dependent and the number of crimes will be a single dependent varibale:
+To test how a machine learning model could be utilized, we can utilize functions in R studio to display a simple linear model test, whereas the housing prices will be the dependent and the number of crimes will be a single dependent variable:
 
 ## Bringing in Data
 
-Firstly, the merged dtat sheet must be brought in and saved into R Studio to later be called upon:
+Firstly, the merged data sheet must be brought in and saved into R Studio to later be called upon:
 
 ```{r merged data, echo=FALSE}
 
@@ -39,24 +39,24 @@ Here is a plot that shows our two variables of interest:
 ```
 
 ## Machine Learning Rundown
-In Pandas, Machine leraning was utilaized to illustrates the results of a  simple linear regression using the two datatypes. Howver in a dashbord, we want to little, if not any, lines of code for presentation; R Markdown allows us to hide code easily:
+In Pandas, Machine learning was utilized to illustrate the results of a  simple linear regression using the two datatypes. However in a dashboard, we want little, if not any, lines of code for presentation; R Markdown allows us to hide code easily:
 ```{r Machine Learning inital model, echo = FALSE}
 model = lm(md$latestPrice ~ md$Count_Crimes)
 summary(model)
 ```
-To quicky explain the results above, the numbers give us a good  indication of what our linear model performance's was. Without going into too much details, there are some indicators that tell us how appropiate was our linear model. An important value to consider is the R score; in the summary we see it is low, nearly at 0.0263 for r squared score. This essentially means that these two data types that we chosen were not appropraite in the current state they were utilized in.
+To quickly explain the results above, the numbers give us a good  indication of what our linear model performance's was. Without going into too much details, there are some indicators that tell us how appropriate was our linear model. An important value to consider is the R score; in the summary we see it is low, nearly at 0.0263 for r squared score. This essentially means that these two data types that we chosen were not appropriate in the current state they were utilized in.
 
-##Checking "Appropiateness in the data"
-There are manny ways to determine whether data utilzed for a model such as this was appriate or not. One way to check is to see what our data is trending towards. 
+## Checking "Appropiateness in the data"
+There are many ways to determine whether data utilized for a model such as this was appropriate or not. One way to check is to see what our data is trending towards. 
 ```{r echo = FALSE}
 plot(model$fitted.values, model$residuals, main = "residual plot of the multiple regression", xlab = "fitted values", ylab ="residuals")
 ```
-The residual plot tells us if there is any "clustering" of data present. In an idela scenario, we want to see a flat cluster of data point across the board. Here, we see there is havey clustering of points at the end of our data. We can explor this further in the next plot.
+The residual plot tells us if there is any "clustering" of data present. In an ideal scenario, we want to see a flat cluster of data point across the board. Here, we see there is heavy clustering of points at the end of our data. We can explore further in the next plot.
 ```{r qq-plot, echo = FALSE}
 qqnorm(model$residuals, main = "qq-plot of residuals", ylab = "residuals", xlab = "theorhetical values (based of the multiple regression of model data)")
 ```
 
 ## Post Summary
-Plots like a qq-polt can tell us what is happening to our data. In summary, we ideally want a linear reression to have all the data points as a straight line on this qq-plot. Our data portrays an expontential curve, this means higher values of our chosen varaibles are not matching up in a linaer manner. This info can be useful in our post anaylis where we talk in the completed poject. Going foward, we can try to improve our Machine leraning model in a varietu of ways, such as new merges, introducing new variables to consider in a Machine Learning model, etc. It is possible that after trial and error, the final model may sttill not be appropiate or that we couldn't make a stronger connection as intcapated.
+Plots like a qq-plot can tell us what is happening to our data. In summary, we ideally want a linear regression to have all the data points as a straight line on this qq-plot. Our data portrays an exponential curve, this means higher values of our chosen variables are not matching up in a linear manner. This info can be useful in our post analysis where we talk further in the completed project. Going forward, we can try to improve our Machine learning model in a variety of ways, such as new merges, introducing new variables to consider in a Machine Learning model, etc. It is possible that after trial and error, the final model may still not be appropriate or that we couldn't make a stronger connection as anticipated.
 
-However, we can still talk about the model and the data itself. The important thing to note here is as data analytics, we are not trying to prove anything. A lot can be said about the data we are trying to use, even if our model isnt a good fit. 
+Most importantly, we can still talk about the model and the data itself. The biggest take away to note here is as data analytics, we are not trying to prove anything. A lot can be said about the data we are trying to use, even if our model isn't a good fit. 
