@@ -1,7 +1,7 @@
 # Housing Prices and Neighborhood Safety in Austin
 
 ## Background: 
-Housing prices in Austin have seen a sharp increase in recent years. According to the Austin Board of Realtors January 2022 report, the median house price in the Austin-Round Rock area is $476,000, up 30% from last January of 2021. Simultaneously, in recent years there have been reports of increased crime in Austin. According to KVUE, there were 60 homicides in Austin in 2021, the highest in 61 years that the police has kept records. Taking both things into consideration, we wonder if the crime rates are impacting, at all, what areas are seeing the most house sales and the price they are listed at. 
+Housing prices in Austin have seen a sharp increase in recent years. According to the [Austin Board of Realtors January 2022 report](https://www.abor.com/january-2022-central-texas-housing-market-report), the median house price in the Austin-Round Rock area is $476,000, up 30% from last January of 2021. Simultaneously, in recent years there have been reports of increased crime in Austin. According to [KVUE, there were 60 homicides in Austin in 2021](https://www.kvue.com/article/news/local/austin-homicide-record-number-2021/269-e3c419af-9722-456f-9b5d-c044944e128d), the highest in 61 years that the police has kept records. Taking both things into consideration, we wonder if the crime rates are impacting, at all, what areas are seeing the most house sales and the price they are listed at. 
 
 ## Question: 
 - Can we predict, from reported crime data, the price of a house in a certain area in Austin?
