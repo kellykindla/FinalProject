@@ -15,7 +15,7 @@ Python will be used to clean up data and conduct the machine learning analysis. 
 ## Data: 
 The data used for this project comes from an [Austin House Listing dataset](https://www.kaggle.com/ericpierce/austinhousingprices) found on [kaggle.com](https://www.kaggle.com/), along with a [crime reports dataset](https://data.austintexas.gov/Public-Safety/Crime-Reports/fdj4-gpfu) from [austintexas.gov](https://www.austintexas.gov/). The Austin House Listing dataset contains information pertaining to the housing market from 2018 to 2021. We chose this dataset as it listed houses from multiple zip codes around Austin and it offered insight on the features of each listing, such as: if the house was in a homeowner's association, the nearby schools, and the latest listing price. We hope to connect this dataset to the crime reports dataset on zip code and determine if the latest listing price for a home could be predicted by the number of crimes in a zip code. The crime reports dataset contains records of incidents that the Austin Police Department responded to and reported. This dataset is updated weekly; however, the dataset used for this analysis was last updated on 7 March 2022. The raw dataset contains 2.41 million rows of data from 2002 to 2022. We will filter this dataset to contain reported crimes from 2018 to 2021. An entity relationship diagram for our project is shown below. This diagram displays the relationships between the datasets; furthermore, the columns we will remove from each dataset in efforts to reduce noise are listed in red. 
 
-<img width="273" alt="ERD" src="https://user-images.githubusercontent.com/92558842/158905458-85cf337a-3f74-4d9e-a139-2b9c5419d47b.png">
+![ERD](Images/ERD.png)
 
 ## Machine Learning Model: 
 ## Our Model: 
