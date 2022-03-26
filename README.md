@@ -18,13 +18,19 @@ The data used for this project comes from an [Austin House Listing dataset](http
 <img width="273" alt="ERD" src="https://user-images.githubusercontent.com/92558842/158905458-85cf337a-3f74-4d9e-a139-2b9c5419d47b.png">
 
 ## Machine Learning Model: 
-For our analysis, we are aiming to find the relationship between two continuous variables— the number of crimes per zip code and the latest listing price for houses in Austin between 2018 and 2021. With this, we will implement a Linear Regression, supervised Machine Learning model in which the model will find the best fit linear line between the independent variable- the number of crimes per zip code- and the dependent variable- the latest listing price. 
+## Our Model: 
+We are trying to find the relationship between two or more continuous variables in efforts to determine if crimes in Austin have an effect on the housing prices between 2018 and 2021. We will implement a Multiple Linear Regression, supervised Machine Learning model in which the model will find the best fit linear line between the dependent variable- the latest listing price and the independent variables- the number of crimes per zip code, the hour the crime occurred, and a multitude of variables related to the house. This model best fits our data as our data has labels and has the potential to learn, based on the input variables, what the output (latest listing price) might be. Furthermore, by using an ordinary least squares regression technique to evaluate our regression model, we are able to estimate the coefficients of the linear regression equation to identify the relationship and impact each variable has on the latest listing price. 
 
-After our preliminary attempt at our Machine Learning model, we found a low R-squared score of 0.02 which suggests a low correlation between the datasets. The pairwise correlation of the columns of our merged dataset shows the following: 
+## Data Preprocessing: 
+** insert preprocessing information and images 
 
-<img width="364" alt="Screen Shot 2022-03-17 at 4 48 09 PM" src="https://user-images.githubusercontent.com/92558842/158905519-90621dde-2422-4887-9aec-9ac4ac079009.png">
+## Model Accuracy: 
+To accomplish our model, our data was grouped by zip code to count the occurrence of crimes and this DataFrame was merged to the housing data. An initial attempt of our model showed a low adjusted r-squared score of 0.38. In efforts to improve our model, we encoded zip codes so each could be evaluated in the model. Furthermore, columns that initially showed insignificant p-values (greater than 0.05) were dropped. Our data was split into training and testing sets and was further scaled to improve accuracy. We used sklearn’s LinearRegression to perform our model and statsmodels.api to display the OLS Regression results. After refactoring, our adjusted r-squared score is 0.556 and we find that for each crime occurrence, the latest listing price increase by 6302.9761. 
 
-To refactor and improve our model, we may attempt to train the model on other independent variables (such as homeowner's association presence or the count of nearby schools). In other efforts to improve our model, we will attempt a multiple linear regression where we have multiple independent variables (such as the weight of a crime, time of day, or property tax rate) along with the number of crimes per zip code to predict the latest price listing of a home in Austin. 
+<img width="705" alt="MLM" src="https://user-images.githubusercontent.com/92558842/160219021-ebcbe85f-3aa2-4417-912c-262b369b06fe.png">
+
+## Further Investigation 
+If time permitted, we would like to investigate the effect crime grouped by year had on our model. To do this, we would have liked to run four models, one for each year— 2018, 2019, 2020, and 2021 in order to investigate the impact each variable had on the latest listing price for each house by zip code by year. If time permitted, it also could have been beneficial to encode each categorical variable to determine it’s impact on the latest listing price. Similarly, it would be interesting to include more crime data to determine if it impacts the latest listing price in any way or changes the weight of the crime occurrence variable.  
 
 ## Database: 
 A PostgreSQL database will be used to store the cleaned Austin house listing and crime reports datasets. A SQL query will be written to join the two datasets before importing to Python to use in the machine learning model. The following dependencies will be used to import and export data, and connect to the PostgreSQL database: sqlalchemy and psycopg2.
