@@ -1,4 +1,4 @@
-﻿# Housing Prices and Neighborhood Safety in Austin
+# Housing Prices and Neighborhood Safety in Austin
 
 ## Background: 
 Housing prices in Austin have seen a sharp increase in recent years. According to the [Austin Board of Realtors January 2022 report](https://www.abor.com/january-2022-central-texas-housing-market-report), the median house price in the Austin-Round Rock area is $476,000, up 30% from last January of 2021. Simultaneously, in recent years there have been reports of increased crime in Austin. According to [KVUE, there were 60 homicides in Austin in 2021](https://www.kvue.com/article/news/local/austin-homicide-record-number-2021/269-e3c419af-9722-456f-9b5d-c044944e128d), the highest in 61 years that the police has kept records. Taking both things into consideration, we wonder if the crime rates are impacting, at all, what areas are seeing the most house sales and the price they are listed at. 
@@ -38,8 +38,3 @@ A PostgreSQL database was used to store the cleaned Austin house listing and cri
 
 ## Communication Protocols: 
 Our team consists of: Francisco Azares, Kelly Kindla, Nayely Gutierrez, and Philip Leung. Our primary form of communication will be through Slack. If we are unable to reach a team member, we have a form containing everyone's email and phone number. The secondary form of communication will be text and final form will be email. We have established our GitHub and have created a Google Drive folder containing all project documents that everyone has access to. 
-
-## Dashboard 
-Here, our dashboard of choice will be Tableau. For now, a Public Tableau Storyboard has been created to demonstrate the interactivity with graphs. Ideally, this dashboard will migrate over to a sever domain or embedded as an html so that the dashboard may be present as a clean webpage. Othe resources that were used in the drafting of the dashboard, as well as general project flow, are posed here as well. 
-
-https://docs.google.com/presentation/d/1SRrtjqWpumo_CebxympE3YYIjPN8nT7Wi16iODnVgDE/edit#slide=id.gf3b695e621_0_27
