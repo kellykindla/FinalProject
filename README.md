@@ -40,6 +40,8 @@ A PostgreSQL database was used to store the cleaned Austin house listing and cri
 Our team consists of: Francisco Azares, Kelly Kindla, Nayely Gutierrez, and Philip Leung. Our primary form of communication will be through Slack. If we are unable to reach a team member, we have a form containing everyone's email and phone number. The secondary form of communication will be text and final form will be email. We have established our GitHub and have created a Google Drive folder containing all project documents that everyone has access to. 
 
 ## Dashboard 
-Here, our dashboard of choice will be Tableau. For now, a Public Tableau Storyboard has been created to demonstrate the interactivity with graphs. Ideally, this dashboard will migrate over to a sever domain or embedded as an html so that the dashboard may be present as a clean webpage. Othe resources that were used in the drafting of the dashboard, as well as general project flow, are posed here as well. 
+We will be using Tableau as our dashboard. For now, a Public Tableau Storyboard has been created. Ideally, this dashboard will be migrated over to a sever domain or embedded as an html so that the dashboard may be presented as a clean webpage. We will generate various interactive maps within Tableau. Interactivity includes filters for zip codes, years, type of crimes, and many more. Additionally, various graphs and charts created with python's matplotlib and seaborn will be imported to the dashboard. 
 
-https://docs.google.com/presentation/d/1SRrtjqWpumo_CebxympE3YYIjPN8nT7Wi16iODnVgDE/edit#slide=id.gf3b695e621_0_27
+Link to [Tableau dashboard](https://public.tableau.com/app/profile/francisco.azares/viz/TeamAustinDashboard/Story1?publish=yes). 
+
+Link to [Google Slides](https://docs.google.com/presentation/d/1SRrtjqWpumo_CebxympE3YYIjPN8nT7Wi16iODnVgDE/edit#slide=id.gf3b695e621_0_27)
