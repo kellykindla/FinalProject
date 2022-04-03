@@ -34,7 +34,7 @@ After loading our crime data and creating a DataFrame, we started by cleaning th
 ## Model Accuracy: 
 To accomplish our model, our data was grouped by zip code to count the occurrence of crimes and this DataFrame was merged to the housing data. An initial attempt of our model showed a low adjusted r-squared score of 0.38. In efforts to improve our model, we encoded zip codes so each could be evaluated in the model. Furthermore, columns that initially showed insignificant p-values (greater than 0.05) were dropped. Our data was split into training and testing sets and was further scaled to improve accuracy. We used sklearn’s LinearRegression to perform our model and statsmodels.api to display the OLS Regression results. After refactoring, our adjusted r-squared score is 0.556 and we find that for each crime occurrence, the latest listing price increase by 6302.9761. 
 
-<img width="705" alt="MLM" src="https://user-images.githubusercontent.com/92558842/160219021-ebcbe85f-3aa2-4417-912c-262b369b06fe.png">
+![MLM Results](Images/MLM_results.png)
 
 ## Further Investigation 
 If time permitted, we would like to investigate the effect crime grouped by year had on our model. To do this, we would have liked to run four models, one for each year— 2018, 2019, and 2020 in order to investigate the impact each variable had on the latest listing price for each house by zip code by year. If time permitted, it also could have been beneficial to encode each categorical variable to determine it’s impact on the latest listing price. Similarly, it would be interesting to include more crime data to determine if it impacts the latest listing price in any way or changes the weight of the crime occurrence variable.  
