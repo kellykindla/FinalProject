@@ -43,8 +43,8 @@ If time permitted, we would like to investigate the effect crime grouped by year
 A PostgreSQL database was used to store the cleaned Austin house listing and crime reports datasets. Another table was created from the crime reports dataset for the count of crimes per zip code. A SQL query was written to join the Austin house listing and count of crimes per zip code datasets before importing to Python to use in the machine learning model. The following dependencies will be used to import and export data, and connect to the PostgreSQL database: sqlalchemy and psycopg2.
 
 ## Dashboard 
-We will be using Tableau as our dashboard. For now, a Public Tableau Storyboard has been created. Ideally, this dashboard will be migrated over to a sever domain or embedded as an html so that the dashboard may be presented as a clean webpage. We will generate various interactive maps within Tableau. Interactivity includes filters for zip codes, years, type of crimes, and many more. Additionally, various graphs and charts created with python's matplotlib and seaborn will be imported to the dashboard. 
+We will be using Tableau as our dashboard. For now, a Public Tableau Dashboard has been created. Ideally, this dashboard will be migrated over to a sever domain or embedded as an html so that the dashboard may be presented as a clean webpage. We will generate various interactive maps within Tableau. Interactivity includes filters for zip codes, years, type of crimes, and many more. Additionally, various graphs and charts created with python's matplotlib and seaborn will be imported to the dashboard. 
 
-Link to [Tableau dashboard](https://public.tableau.com/app/profile/francisco.azares/viz/TeamAustinDashboard/Story1?publish=yes). 
+Link to [Tableau dashboard](https://public.tableau.com/app/profile/nayely.gutierrez/viz/CrimeandHousingViz_2/CrimeHousing_Dashboard?publish=yes). 
 
 Link to [Google Slides](https://docs.google.com/presentation/d/1SRrtjqWpumo_CebxympE3YYIjPN8nT7Wi16iODnVgDE/edit#slide=id.gf3b695e621_0_27)
