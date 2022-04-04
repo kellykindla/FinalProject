@@ -79,6 +79,6 @@ A PostgreSQL database was used to store the cleaned Austin house listing and cri
 ## Dashboard 
 We will be using Tableau as our dashboard. For now, a Public Tableau Dashboard has been created. Ideally, the Dashbord will be formated to look like a scroallable webpage. We will generate various interactive maps within Tableau. Interactivity includes filters for zip codes, years, type of crimes, and many more. Additionally, various graphs and charts created with python's matplotlib and seaborn will be imported to the dashboard. 
 
-Link to [Tableau dashboard](https://public.tableau.com/app/profile/nayely.gutierrez/viz/CrimeandHousingViz_2/CrimeHousing_Dashboard?publish=yes). 
+Link to [Tableau dashboard](https://public.tableau.com/app/profile/francisco.azares/viz/CrimeandHousingViz_2DashboardViz_1/CrimeHousing_Dashboard?publish=yes). 
 
 Link to [Google Slides](https://docs.google.com/presentation/d/1SRrtjqWpumo_CebxympE3YYIjPN8nT7Wi16iODnVgDE/edit#slide=id.gf3b695e621_0_27)
