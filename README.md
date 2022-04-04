@@ -21,7 +21,7 @@ The crime reports dataset contains records of incidents that the Austin Police D
 
 ## Machine Learning Model: 
 ### Our Model: 
-We want to find a relationship between two or more continuous and categorical variables in efforts to determine if crimes in Austin have an effect on the housing prices between 2018 and 2020. We will implement a Multiple Linear Regression, which is a supervised Machine Learning model in which the model will find the best fit linear line between the dependent variable- the latest listing price and the independent variables- the number of crimes per zip code, the crime level occurrence, and a multitude of variables related to the house. This model best fits our data as our data has labels and has the potential to learn, based on the input variables, what the output (latest listing price) might be. Furthermore, by using an ordinary least squares regression technique to evaluate our regression model, we are able to estimate the coefficients of the linear regression equation to identify the relationship and impact each variable has on the latest listing price. 
+We want to find a relationship between two or more continuous and categorical variables in efforts to determine if crimes in Austin have an effect on the housing prices between 2018 and 2020. We will implement a Multiple Linear Regression, which is a supervised Machine Learning model in which the model will find the best fit linear line between the dependent variable- the latest listing price and the independent variables- the number of crimes per zip code, the crime level occurrence, and a multitude of variables related to the house. This model best fits our data as our data has labels and has the potential to learn, based on the input variables, what the output (latest listing price) might be. Furthermore, by using an ordinary least squares regression technique to evaluate our regression model, we are able to estimate the coefficients of the linear regression equation to identify the relationship and impact each variable has on the latest listing price. However, we are aware of the limitations regarding our model. The main limitation of using a multiple linear regression is assuming limarity between the dependent and independent variables. We are also limited to the variables presented in the selected datasets and to data from 2018 to 2020. The model also does not account for external factors affecting the housing market such as supply shortage and other repercussions of the pandemic. 
 
 ### Data Preprocessing: 
 After loading our housing dataset as a DataFrame, our initial observation was that the dataset contained houses in surrounding Austin cities. In efforts to limit our analysis to Austin only, we dropped the zip codes pertaining to cities surrounding Austin. 
@@ -55,14 +55,46 @@ Lastly, we clustered the count of crimes by zip code and categorized each zip co
 
 
 ### Model Accuracy: 
-To accomplish our model, our data was grouped by zip code to count the occurrence of crimes and this DataFrame was merged to the housing data. An initial attempt of our model showed a low adjusted r-squared score of 0.38. In efforts to improve our model, we encoded zip codes so each could be evaluated in the model. Furthermore, columns that initially showed insignificant p-values (greater than 0.05) were dropped. Our data was split into training and testing sets (with train_test_split default parameters) and was further scaled (using StandardScaler()) to improve accuracy. We used sklearn’s LinearRegression to perform our model and statsmodels.api to display the OLS Regression results. After refactoring, the adjusted r-squared score was 0.556.
+To accomplish our model, our data was grouped by zip code to count the occurrence of crimes and this DataFrame was merged to the housing data. An initial attempt of our model showed a low adjusted r-squared score of 0.38. In efforts to improve our model, we encoded zip codes and the occurance of crimes (high, medium, low) so each could be evaluated in the model. Furthermore, columns that initially showed insignificant p-values (greater than 0.05) from our inital analysis were dropped. Our data was split into training and testing sets (with train_test_split default parameters) and was further scaled (using StandardScaler()) to improve accuracy. We used sklearn’s LinearRegression to perform our model and statsmodels.api to display the OLS Regression results. After refactoring, the adjusted r-squared score was 0.556.
 
-Additional refactoring and cleaning were conducted. All categorical features were encoded and additional extreme outliers were identified and removed from the dataset. Our adjusted r-squared score is 0.734 and we find that for each crime occurrence, the latest listing price increase by 6302.9761. 
+Additional refactoring and cleaning were conducted. All categorical features were encoded and additional extreme outliers were identified and removed from the dataset. Our adjusted r-squared score is 0.734 and we find that for each crime occurrence, the latest listing price decreased by $0.2106. 
 
 ![MLM Results](Images/MLM_results.png)
 
+### Feature Selection: 
+Throughout our analysis, our model choice and dependent variable remained the same-- a Linear Regression and the Latest Listing Price, respectively. However, through multiple attempts at improving our model, we found that including more features from the housing dataset significantly improved our model. As stated previously, we reevaluated our selected columns for the model and encoded columns we originaly assumed as numeric-continuous variables to categorical. Furthermore, we chose to only include the count of crimes per zip code and the level of crime occurance (low, medium, or high) from the crime dataset as other variables related to crime would have required assumptions about the crime (do we deem it high or low danger for example) and other variables woulud have increased the noise in our model. Below is a full list of our selected variables. Those variables italicized were encoded to categorical variables.  
+  - *zipcode*
+  - *propertyTaxRate*
+  - garageSpaces
+  - parkingSpaces
+  - latestPrice
+  - *numPriceChanges*
+  - *numOfAccessibilityFeatures*
+  - numOfAppliances
+  - *numOfParkingFeatures*
+  - *numOfPatioAndPorchFeatures*
+  - *numOfSecurityFeatures*
+  - *numOfWaterfrontFeatures*
+  - *numOfWindowFeatures*
+  - *numOfCommunityFeatures*
+  - lotSizeSqFt
+  - livingAreaSqFt
+  - *numOfBathrooms*
+  - *numOfBedrooms*
+  - *numOfStories*
+  - *avgSchoolRating*
+  - *numOfPrimarySchools*
+  - *numOfElementarySchools*
+  - *numOfMiddleSchools*
+  - *numOfHighSchools*
+  - avgSchoolDistance
+  - avgSchoolSize
+  - *MedianStudentsPerTeacher*
+  - Count_Of_Crimes_Per_Zip
+  - *Crime_Level*
+
 ## Further Investigation 
-If time permitted, we would like to investigate the effect crime grouped by year had on our model. To do this, we would have liked to run four models, one for each year— 2018, 2019, and 2020 in order to investigate the impact each variable had on the latest listing price for each house by zip code by year. 
+If time permitted, we would like to investigate the effect crime grouped by year had on our model. To do this, we would have liked to run three models, one for each year— 2018, 2019, and 2020 in order to investigate the impact each variable had on the latest listing price for each house by zip code by year. 
 
 Additionally, it could have been beneficial to encode each categorical variable (for columns that were dropped during the EDA and cleaning process) to determine its impact on the latest listing price. 
 
@@ -78,6 +110,7 @@ A PostgreSQL database was used to store the cleaned Austin house listing and cri
 
 ## Dashboard 
 We will be using Tableau as our dashboard. For now, a Public Tableau Dashboard has been created. Ideally, the Dashbord will be formated to look like a scroallable webpage. We will generate various interactive maps within Tableau. Interactivity includes filters for zip codes, years, type of crimes, and many more. Additionally, various graphs and charts created with python's matplotlib and seaborn will be imported to the dashboard. 
+
 
 Link to [Tableau dashboard](https://public.tableau.com/app/profile/francisco.azares/viz/CrimeandHousingViz_2DashboardViz_1/CrimeHousing_Dashboard?publish=yes). 
 
