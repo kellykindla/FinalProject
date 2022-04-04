@@ -114,7 +114,7 @@ We will be using Tableau as our dashboard. For now, a Public Tableau Dashboard h
 
 Link to [Tableau dashboard with text](https://public.tableau.com/app/profile/francisco.azares/viz/CrimeandHousingViz_2DashboardViz_1/CrimeHousing_Dashboard?publish=yes). 
 
-Link to [Tableau dashboard with text](https://public.tableau.com/app/profile/nayely.gutierrez/viz/CrimeandHousingViz_2/CrimeHousing_Dashboard?publish=yes)
+Link to [Tableau dashboard](https://public.tableau.com/app/profile/nayely.gutierrez/viz/CrimeandHousingViz_2/CrimeHousing_Dashboard?publish=yes)
 
 Note: the two links to the Tableau will be combined for a finalized version of a dashboard.
 
