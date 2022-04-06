@@ -46,20 +46,34 @@ After loading our crime data and creating a DataFrame, we started by cleaning th
 
 We then filtered the crime data to only include 2018-2020 crimes to further match our housing data. We then dropped columns we collectively deemed unnecessary for our analysis-- "Council_District", "APD_Sector", "APD_District", "PRA", "Occurred_Time", and "Report_Time". 
 
-The crime dataset did contain null values for multiple columns. After discussion, we dropped the null values for the following columns since the columns are necessary for our analysis and replacing the null values would alter our data: "Location_Type", "zipcode", "Census_Tract", and "Latitude". Dropping the null values for the "Latitude" column also removed null values for "Longitude" and "Location". Furthermore, we discovered that dropping null location values also removed all instances of rape crimes in our dataset. We then decided to replace null values for "UCR_Category", "Category_Description", "Clearance_Status", and "Clearance_Date" with unknowns as it applies to the data. 
+The crime dataset did contain null values for multiple columns. After discussion, we dropped the null values for the following columns since the columns are necessary for our analysis and replacing the null values would alter our data: "Location_Type", "zipcode", "Census_Tract", and "Latitude". Dropping the null values for the "Latitude" column also removed null values for "Longitude" and "Location". Furthermore, we discovered that dropping null location values also removed all instances of rape crimes in our dataset. We then decided to replace null values for "UCR_Category", "Category_Description", "Clearance_Status", and "Clearance_Date" with unknowns as it applies to the data. A more clear breakdown of what we replaced is displayed in the code below: 
 
-We also changed the "Occurred_Date_Time" column to a datetime data type and extracted the hour in a new column and created categories for Morning, Afternoon, Evening, and Night. We grouped the data by zip code and showed counts of crimes per each time of day, to see if there was any change in crime rates per zip code depending on the time. 
+<img width="906" alt="replacing_nulls" src="https://user-images.githubusercontent.com/92558842/162081520-7a873a6b-ab0f-44ea-9b47-1ec5f2ee5407.png">
+
+
+We also changed the "Occurred_Date_Time" column to a datetime data type and extracted the hour in a new column and created categories for Morning, Afternoon, Evening, and Night. We grouped the data by zip code and showed counts of crimes per each time of day, to see if there was any change in crime rates per zip code depending on the time. Below is a graph visualizing the occurence of crime by the time of day. As you can see, the time of day does not tend to influence the rate crimes occur in Austin.
+
+<img width="582" alt="crime_by_daytime" src="https://user-images.githubusercontent.com/92558842/162081823-2c462292-d2cb-41f8-af19-0f5d693c92d4.png">
+
 
 Lastly, we clustered the count of crimes by zip code and categorized each zip code as low, medium, or high crime occurrence. 
 
 
-
 ### Model Accuracy: 
-To accomplish our model, our data was grouped by zip code to count the occurrence of crimes and this DataFrame was merged to the housing data. An initial attempt of our model showed a low adjusted r-squared score of 0.38. In efforts to improve our model, we encoded zip codes and the occurance of crimes (high, medium, low) so each could be evaluated in the model. Furthermore, columns that initially showed insignificant p-values (greater than 0.05) from our inital analysis were dropped. Our data was split into training and testing sets (with train_test_split default parameters) and was further scaled (using StandardScaler()) to improve accuracy. We used sklearn’s LinearRegression to perform our model and statsmodels.api to display the OLS Regression results. After refactoring, the adjusted r-squared score was 0.556.
+To accomplish our model, our data was grouped by zip code to count the occurrence of crimes and this DataFrame was merged to the housing data. An initial attempt of our model showed a low adjusted r-squared score of 0.38. In efforts to improve our model, we encoded zip codes and the occurance of crimes (high, medium, low) so each could be evaluated in the model. Furthermore, columns that initially showed insignificant p-values (greater than 0.05) from our inital analysis were dropped. Our data was split into training and testing sets (with train_test_split default parameters) and was further scaled (using StandardScaler()) to improve accuracy. We used sklearn’s LinearRegression to perform our model and statsmodels.api to display the OLS Regression results. After refactoring, the adjusted r-squared score was 0.556. The code used to accomplish our multiple linear regression, including training and scaling our data is shown below. 
 
-Additional refactoring and cleaning were conducted. All categorical features were encoded and additional extreme outliers were identified and removed from the dataset. Our adjusted r-squared score is 0.734 and we find that for each crime occurrence, the latest listing price decreased by $0.2106. 
+<img width="906" alt="MLM" src="https://user-images.githubusercontent.com/92558842/162082149-256b0ddc-b47c-414b-b1af-be59999df473.png">
+
+
+Additional refactoring and cleaning were conducted. All categorical features were encoded and additional extreme outliers were identified and removed from the dataset. Our adjusted r-squared score is 0.728 and we find that for each crime occurrence, the latest listing price decreased by $0.2106. 
 
 ![MLM Results](Images/MLM_results.png)
+
+The remaining OLS summary can be found [here](output.txt)
+
+Furthermore, we displayed the coefficients of each feature in our multiple linear regression to evaluate their effect on the latest listing price. Through the visualization below, we can see that the property tax rate had the most significant effect on the latest listing price. 
+
+![features_output](https://user-images.githubusercontent.com/92558842/162082516-8fa0d8a2-808c-460a-8783-4e1c87179344.jpg)
 
 ### Feature Selection: 
 Throughout our analysis, our model choice and dependent variable remained the same-- a Linear Regression and the Latest Listing Price, respectively. However, through multiple attempts at improving our model, we found that including more features from the housing dataset significantly improved our model. As stated previously, we reevaluated our selected columns for the model and encoded columns we originaly assumed as numeric-continuous variables to categorical. Furthermore, we chose to only include the count of crimes per zip code and the level of crime occurance (low, medium, or high) from the crime dataset as other variables related to crime would have required assumptions about the crime (do we deem it high or low danger for example) and other variables woulud have increased the noise in our model. Below is a full list of our selected variables. Those variables italicized were encoded to categorical variables.  
@@ -93,6 +107,27 @@ Throughout our analysis, our model choice and dependent variable remained the sa
   - Count_Of_Crimes_Per_Zip
   - *Crime_Level*
 
+### Questions Revisited: 
+#### Can we predict, based on crime data, the price of a house in Austin?
+Our initial Multiple Linear Regression attempted to solve this question based on crime data alone. For this initial analysis we used the count of crimes and the time the crime occured as the only indepentent variables to predict our dependent variable, the latest listing price. This model was not successful alone and resulted in an adjusted P-value of 0.38. With more research, we found that we could not confidently predict the latest listing price based on crime data alone, we did need additional housing variables. Using more variables resulted in our final adjusted p-value of 0.728 and we found the following coefficients related to the crime data. 
+
+<img width="633" alt="crimeresults_MLM" src="https://user-images.githubusercontent.com/92558842/162084589-115456b1-e030-4788-b9aa-958e8d6db7e2.png">
+
+
+#### Will crime rates and house prices vary by zip code based on year?
+In order to discover the difference in crime rates and housing prices per year, we grouped both our crime and housing data by zip code and year and calculated the percent difference for each zip code from 2018 to 2019 and 2019 to 2020. The findings from this analysis are sumarized in the visual below. 
+
+<img width="804" alt="crime_housing_dif" src="https://user-images.githubusercontent.com/92558842/162085416-44c92812-758d-4836-aef6-0bdc28103ddc.png">
+
+Through this visualization, we can see that from 2018 to 2019 there was a general increase in the occurance of crime by zip code; however, from 2019 to 2020, there tends to be a decrease in crimes per zip code. 
+For the latest listing price, we see that for each year difference, there tends to be an increase in housing prices for each zip code. 
+
+#### Will crime rates in Austin affect house prices by zip code?
+Based on our data, we find that the model explains 72.8% of the change in the latest listing price, leaving 27.2% unexplained by our data. Furthermore, from the visual below where latest listing price is plotted along the y-axis and the count of crimes is plotted on the x-axis, that when there is more crime, there tends to be lower housing prices and when there is less crime, the occurance of higher listing prices is more common. 
+
+<img width="435" alt="crimesbyhouseprice" src="https://user-images.githubusercontent.com/92558842/162086372-2dac6f32-698e-4ded-8a80-5949c52001f3.png">
+
+
 ## Further Investigation 
 If time permitted, we would like to investigate the effect crime grouped by year had on our model. To do this, we would have liked to run three models, one for each year— 2018, 2019, and 2020 in order to investigate the impact each variable had on the latest listing price for each house by zip code by year. 
 
@@ -108,14 +143,15 @@ Lastly, we would have like to include point of interests (such as parks, trails,
 ## Database: 
 A PostgreSQL database was used to store the cleaned Austin house listing and crime reports datasets. Another table was created from the crime reports dataset for the count of crimes per zip code. A SQL query was written to join the Austin house listing and count of crimes per zip code datasets before importing to Python to use in the machine learning model. The following dependencies will be used to import and export data, and connect to the PostgreSQL database: sqlalchemy and psycopg2.
 
+
 ## Dashboard 
 We will be using Tableau as our dashboard. For now, a Public Tableau Dashboard has been created. Ideally, the Dashbord will be formated to look like a scroallable webpage. We will generate various interactive maps within Tableau. Interactivity includes filters for zip codes, years, type of crimes, and many more. Additionally, various graphs and charts created with python's matplotlib and seaborn will be imported to the dashboard. 
 
 
-Link to [Tableau dashboard with text](https://public.tableau.com/app/profile/francisco.azares/viz/CrimeandHousingViz_2DashboardViz_1/CrimeHousing_Dashboard?publish=yes)
 
-Link to [Tableau dashboard](https://public.tableau.com/app/profile/nayely.gutierrez/viz/CrimeandHousingViz_2/CrimeHousing_Dashboard?publish=yes)
+# Link to [Tableau dashboard](https://public.tableau.com/app/profile/nayely.gutierrez/viz/CrimeandHousingViz_2/CrimeHousing_Dashboard?publish=yes)
+The link above can be used to access our dashboard with detailed visualizations of our data. 
 
-Note: the two links to the Tableau will be combined for a finalized version of a dashboard.
+# Link to [Google Slides](https://docs.google.com/presentation/d/1SRrtjqWpumo_CebxympE3YYIjPN8nT7Wi16iODnVgDE/edit#slide=id.gf3b695e621_0_27)
+The Google Slides presentation above will be used to explain our project in further detail. 
 
-Link to [Google Slides](https://docs.google.com/presentation/d/1SRrtjqWpumo_CebxympE3YYIjPN8nT7Wi16iODnVgDE/edit#slide=id.gf3b695e621_0_27)
