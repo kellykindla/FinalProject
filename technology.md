@@ -11,4 +11,4 @@ PgAdmin4 version 6.1 was used to access PostgreSQL version 11.14 which was the d
 SciKitLearn version 1.0.2 was the Machine Learning library we used to create a classifier. We created a Linear Regression Machine Learning model thus establishing our dependent and independent variables and trained our model with the entire dataset. We then tested our model with the dataset and made predictions on the dependent variable, extrapolating information. We used Pandas to preprocess our data for the Machine Learning model. 
 
 ## Dashboard
-Our dashboard wass hosted through Tableau Public.  
+Our dashboard was hosted through Tableau Public.  
