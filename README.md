@@ -51,10 +51,7 @@ The crime dataset did contain null values for multiple columns. After discussion
 <img width="906" alt="replacing_nulls" src="https://user-images.githubusercontent.com/92558842/162081520-7a873a6b-ab0f-44ea-9b47-1ec5f2ee5407.png">
 
 
-We also changed the "Occurred_Date_Time" column to a datetime data type and extracted the hour in a new column and created categories for Morning, Afternoon, Evening, and Night. We grouped the data by zip code and showed counts of crimes per each time of day, to see if there was any change in crime rates per zip code depending on the time. Below is a graph visualizing the occurence of crime by the time of day. As you can see, the time of day did not tend to influence the rate crimes occur in Austin.
-
-<img width="582" alt="crime_by_daytime" src="https://user-images.githubusercontent.com/92558842/162081823-2c462292-d2cb-41f8-af19-0f5d693c92d4.png">
-
+We also changed the "Occurred_Date_Time" column to a datetime data type and extracted the hour in a new column and created categories for Morning, Afternoon, Evening, and Night. We grouped the data by zip code and showed counts of crimes per each time of day, to see if there was any change in crime rates per zip code depending on the time.
 
 Lastly, we clustered the count of crimes by zip code and categorized each zip code as low, medium, or high crime occurrence. 
 
@@ -137,7 +134,9 @@ Similarly, it would be interesting to include more crime data to determine if it
 
 We would also like to fine-tune the EDA and cleaning process by categorizing or binning every crime type that was reported.
 
-Lastly, we would have liked to include point of interests (such as parks, trails, water-areas, bars, etc.) to see if it would affect the listing price. 
+During the data analysis phase, we added the time of day for each crime incident (Morning, Afternoon, Evening, and Night). We would like to see if the time of day a crime occurred would impact the house listing price. 
+
+Lastly, we would have liked to include point of interests (such as parks, trails, water-areas, bars, number of restaurants, etc.) to see if it would affect the listing price. 
 
 
 ## Database: 
