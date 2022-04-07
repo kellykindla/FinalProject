@@ -57,12 +57,12 @@ Lastly, we clustered the count of crimes by zip code and categorized each zip co
 
 
 ### Model Accuracy: 
-To accomplish our model, our data was grouped by zip code to count the occurrence of crimes; this DataFrame was merged to the housing data. An initial attempt of our model showed a low adjusted r-squared score of 0.38. In efforts to improve our model, we encoded all zip codes and the binned the occurrence of crimes (high, medium, low) so each could be evaluated in the model. Furthermore, columns that initially showed insignificant p-values (greater than 0.05) from our initial analysis were dropped. Our data was split into training and testing sets (with train_test_split default parameters) and was further scaled (using StandardScaler()) to improve accuracy. We used sklearn’s LinearRegression to perform our model and statsmodels.api to display the OLS Regression results. After refactoring, the adjusted r-squared score was 0.556. The code used to accomplish our multiple linear regression, including training and scaling our data is shown below. 
+To accomplish our model, our data was grouped by zip code to count the occurrence of crimes; this DataFrame was merged to the housing data. An initial attempt of our model showed a low adjusted R-squared score of 0.38. In efforts to improve our model, we encoded all zip codes and the binned the occurrence of crimes (high, medium, low) so each could be evaluated in the model. Furthermore, columns that initially showed insignificant p-values (greater than 0.05) from our initial analysis were dropped. Our data was split into training and testing sets (with train_test_split default parameters) and was further scaled (using StandardScaler()) to improve accuracy. We used sklearn’s LinearRegression to perform our model and statsmodels.api to display the OLS Regression results. After refactoring, the adjusted R-squared score was 0.556. The code used to accomplish our multiple linear regression, including training and scaling our data is shown below. 
 
 <img width="906" alt="MLM" src="https://user-images.githubusercontent.com/92558842/162082149-256b0ddc-b47c-414b-b1af-be59999df473.png">
 
 
-Additional refactoring and cleaning were conducted to attempt to improve our model. All categorical features were encoded and additional extreme outliers were identified and removed from the dataset. Our adjusted r-squared score is 0.728. According to the machine learaning model, we found that for each crime occurrence, the latest listing price decreased by $0.2106. 
+Additional refactoring and cleaning were conducted to attempt to improve our model. All categorical features were encoded and additional extreme outliers were identified and removed from the dataset. Our adjusted R-squared score is 0.734. According to the machine learaning model, we found that for each crime occurrence, the latest listing price decreased by $0.2106. 
 
 ![MLM Results](Images/MLM_results.png)
 
@@ -106,7 +106,7 @@ Throughout our analysis, our model choice and dependent variable remained the sa
 
 ### Questions Revisited: 
 #### Can we predict, based on crime data, the price of a house in Austin?
-Our initial Multiple Linear Regression attempted to solve this question based on crime data alone. For this initial analysis we used the count of crimes and the time the crime occurred as the only independent variables to predict our dependent variable, the latest listing price. This model was not successful alone and resulted in an adjusted r-squraed score of 0.38. With more research, we found that we could not confidently predict the latest listing price based on crime data alone, we did need additional housing variables. Using more variables resulted in our final adjusted r-squared score of 0.728 and we found the following coefficients related to the crime data. 
+Our initial Multiple Linear Regression model attempted to solve this question based on crime data alone. For this initial analysis we used the count of crimes and the time the crime occurred as the only independent variables to predict our dependent variable, the latest listing price. This model was not successful alone and resulted in an adjusted R-squraed score of 0.38. With more research, we found that we could not confidently predict the latest listing price based on crime data alone, we did need additional housing variables. Using more variables resulted in our final adjusted R-squared score of 0.734 and we found the following coefficients related to the crime data. 
 
 <img width="633" alt="crimeresults_MLM" src="https://user-images.githubusercontent.com/92558842/162084589-115456b1-e030-4788-b9aa-958e8d6db7e2.png">
 
@@ -120,7 +120,7 @@ Through this visualization, we can see that from 2018 to 2019 there was a genera
 For the latest listing price, we see that for each year difference, there tends to be an increase in housing prices for each zip code. 
 
 #### Will crime rates in Austin affect house prices by zip code?
-Based on our data, we found that the model explains 72.8% of the change in the latest listing price, leaving 27.2% unexplained by our data. Furthermore, the visual below represents the latest listing price plotted along the y-axis and the count of crimes plotted on the x-axis. When there is more crime, there tends to be lower housing prices; conversely, when there is less crime, the occurrence of higher listing prices is more common.
+Based on our data, we found that the model explains 73.4% of the change in the latest listing price, leaving 26.6% unexplained by our data. Furthermore, the visual below represents the latest listing price plotted along the y-axis and the count of crimes plotted on the x-axis. When there is more crime, there tends to be lower housing prices; conversely, when there is less crime, the occurrence of higher listing prices is more common.
 
 <img width="435" alt="crimesbyhouseprice" src="https://user-images.githubusercontent.com/92558842/162086372-2dac6f32-698e-4ded-8a80-5949c52001f3.png">
 
