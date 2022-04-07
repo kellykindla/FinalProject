@@ -70,7 +70,7 @@ The remaining OLS summary can be found [here](output.txt)
 
 Furthermore, we displayed the coefficients of each feature in our multiple linear regression to evaluate their effect on the latest listing price. Through the visualization below, we can see that the property tax rate had the most significant effect on the latest listing price. 
 
-![features_output](https://user-images.githubusercontent.com/92558842/162082516-8fa0d8a2-808c-460a-8783-4e1c87179344.jpg)
+![features_output](Images/features_output.jpg)
 
 ### Feature Selection: 
 Throughout our analysis, our model choice and dependent variable remained the same-- a Linear Regression and the Latest Listing Price, respectively. However, through multiple attempts at improving our model, we found that including more features from the housing dataset significantly improved our model. As stated previously, we reevaluated our selected columns for the model and encoded columns we originally assumed as numeric-continuous variables to categorical. Furthermore, we chose to only include the count of crimes per zip code and the level of crime occurrence (low, medium, or high) from the crime dataset as other variables related to crime would have required assumptions about the crime (do we deem it high or low danger for example) and other variables would have increased the noise in our model. Below is a full list of our selected variables. The italicized variables were categorical variables that were encoded.
@@ -112,15 +112,15 @@ Our initial Multiple Linear Regression attempted to solve this question based on
 
 
 #### Will crime rates and house prices vary by zip code based on year?
-In order to discover the difference in crime rates and housing prices per year, we grouped both our crime and housing data by zip code and year and calculated the percent difference for each zip code from 2018 to 2019 and 2019 to 2020. The findings from this analysis are sumarized in the visual below. 
+In order to discover the difference in crime rates and housing prices per year, we grouped both our crime and housing data by zip code and year and calculated the percent difference for each zip code from 2018 to 2019 and 2019 to 2020. The findings from this analysis are summarized in the visual below. 
 
 <img width="804" alt="crime_housing_dif" src="https://user-images.githubusercontent.com/92558842/162085416-44c92812-758d-4836-aef6-0bdc28103ddc.png">
 
-Through this visualization, we can see that from 2018 to 2019 there was a general increase in the occurance of crime by zip code; however, from 2019 to 2020, there tends to be a decrease in crimes per zip code. 
+Through this visualization, we can see that from 2018 to 2019 there was a general increase in the occurrence of crime by zip code; however, from 2019 to 2020, there tends to be a decrease in crimes per zip code. 
 For the latest listing price, we see that for each year difference, there tends to be an increase in housing prices for each zip code. 
 
 #### Will crime rates in Austin affect house prices by zip code?
-Based on our data, we found that the model explains 72.8% of the change in the latest listing price, leaving 27.2% unexplained by our data. Furthermore, from the visual below where latest listing price is plotted along the y-axis and the count of crimes is plotted on the x-axis, that when there is more crime, there tends to be lower housing prices and when there is less crime, the occurrence of higher listing prices is more common. 
+Based on our data, we found that the model explains 72.8% of the change in the latest listing price, leaving 27.2% unexplained by our data. Furthermore, the visual below represents the latest listing price plotted along the y-axis and the count of crimes plotted on the x-axis. When there is more crime, there tends to be lower housing prices; conversely, when there is less crime, the occurrence of higher listing prices is more common.
 
 <img width="435" alt="crimesbyhouseprice" src="https://user-images.githubusercontent.com/92558842/162086372-2dac6f32-698e-4ded-8a80-5949c52001f3.png">
 
@@ -132,7 +132,7 @@ Additionally, it could have been beneficial to encode each categorical variable 
 
 Similarly, it would be interesting to include more crime data to determine if it impacts the latest listing price in any way or changes the weight of the crime occurrence variable.  
 
-We would also like to fine-tune the EDA and cleaning process by categorizing or binning every crime type that was reported.
+We would also like to fine-tune the EDA and cleaning process by categorizing or binning every crime type that was reported. The includes keeping the “rape” category to use for visualizations even though it does not have a location associated with each incident. 
 
 During the data analysis phase, we added the time of day for each crime incident (Morning, Afternoon, Evening, and Night). We would like to see if the time of day a crime occurred would impact the house listing price. 
 
@@ -140,11 +140,11 @@ Lastly, we would have liked to include point of interests (such as parks, trails
 
 
 ## Database: 
-A PostgreSQL database was used to store the cleaned Austin house listing and crime reports datasets. Another table was created from the crime reports dataset for the count of crimes per zip code. A SQL query was written to join the Austin house listing and count of crimes per zip code datasets before importing to Python to use in the machine learning model. The following dependencies will be used to import and export data, and connect to the PostgreSQL database: sqlalchemy and psycopg2.
+A PostgreSQL database was used to store the cleaned Austin house listing and crime reports datasets. Another table was created from the crime reports dataset for the count of crimes and crime level per zip code. A SQL query was written to join the Austin house listing and crime (count of crimes and crime level per zip code) datasets before importing to Python to use in the machine learning model. The following dependencies will be used to import and export data, and connect to the PostgreSQL database: sqlalchemy and psycopg2.
 
 
 ## Dashboard 
-We will be using Tableau as our dashboard. For now, a Public Tableau Dashboard has been created. Ideally, the Dashbord will be formated to look like a scroallable webpage. We will generate various interactive maps within Tableau. Interactivity includes filters for zip codes, years, type of crimes, and many more. Additionally, various graphs and charts created with python's matplotlib and seaborn will be imported to the dashboard. 
+We used Tableau as our dashboard – which can be found in Tableau Public (link below). We generated various interactive maps within Tableau using the housing and crime datasets. Interactivity includes filters for zip codes, years, type of crimes, and many more. Additionally, various graphs and charts created with python's matplotlib and seaborn was imported to the dashboard.
 
 
 
