@@ -28,8 +28,6 @@ After loading our housing dataset as a DataFrame, our initial observation was th
 
 Furthermore, in our initial analysis we found that there were no null values for this dataset. 
 
-We also dropped two columns deemed unnecessary for our analysis: “latestPriceSource” and “numOfPhotos”.
-
 After looking at the value counts for the "homeType" column, we decided to focus on single family homes only, as it made up 94% of the housing data. We believed that other home types could skew the model in predicting the listing price. 
 
 We then took the minimum and maximum from the 'latest_saledate' column and discovered that for 2021, only January was included. For this reason, we decided to filter our data and only look at data from 2018 to 2020 where a full years’ worth of information was available. 
